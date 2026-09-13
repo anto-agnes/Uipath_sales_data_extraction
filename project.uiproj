@@ -1,0 +1,6 @@
+{
+  "ProjectType": "Process",
+  "Name": "Table Data Extraction for Sales Opportunities to Excel workbook",
+  "Description": "Take data from rpasamples.com/opportunities, write it to a new Microsoft Office 365 Excel workbook, and send the workbook to your Inbox via Outlook. ",
+  "MainFile": "Main.xaml"
+}

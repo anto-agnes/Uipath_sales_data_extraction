@@ -1,0 +1,63 @@
+{
+  "name": "Table Data Extraction for Sales Opportunities to Excel workbook",
+  "projectId": "416de953-5892-4146-beac-7cc7f41d8630",
+  "description": "Take data from rpasamples.com/opportunities, write it to a new Microsoft Office 365 Excel workbook, and send the workbook to your Inbox via Outlook. ",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.DocumentUnderstanding.Activities": "3.4.0-preview",
+    "UiPath.GSuite.Activities": "3.11.10",
+    "UiPath.MicrosoftOffice365.Activities": "3.11.10",
+    "UiPath.System.Activities": "26.6.3",
+    "UiPath.UIAutomation.Activities": "26.10.3",
+    "UiPath.WebAPI.Activities": "2.5.2"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "22.10.0.0",
+  "projectVersion": "1.0.2",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": false,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false,
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "4feccc68-b452-4f3b-b260-15971cbc1d9f",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Portable"
+}

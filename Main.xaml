@@ -1,0 +1,282 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common"
+ xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities"
+ xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities"
+ xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities"
+ xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities"
+ xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:uix="http://schemas.uipath.com/workflow/activities/uix"
+ xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities"
+ xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities"
+ xmlns:umamm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Models;assembly=UiPath.MicrosoftOffice365.Activities"
+ xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities"
+ xmlns:usau1="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="52">
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>System</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Design.Services.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Persistence</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>Interop.UiPath</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Reflection</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>System.Xml.ReaderWriter</AssemblyReference>
+      <AssemblyReference>System.Xml.XmlSerializer</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Globalization</AssemblyReference>
+      <AssemblyReference>FSharp.Core</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[new System.Data.DataTable]" Name="ExtractedData" />
+      <Variable x:TypeArguments="x:String" Name="emailAddress" />
+      <Variable x:TypeArguments="ugdm:GDriveRemoteItem" Name="saveSpreadsheetForLater">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">CreateSpreadsheetConnections_1</x:String>
+            <x:String x:Key="SourcePropertyName">NewSpreadsheet</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="ugdm:GDriveLocalItem" Name="file">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">DownloadFileConnections_2</x:String>
+            <x:String x:Key="SourcePropertyName">NewResult</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+    </Sequence.Variables>
+    <ui:ManualTrigger Result="{x:Null}" DisplayName="Manually start this" sap2010:WorkflowViewState.IdRef="ManualTrigger_1" />
+    <Assign sap2010:Annotation.AnnotationText="Set the email address in the Value field to your preferred address. This is used to send the extracted data as attachment. The default value is empty." DisplayName="Set email address to use to send email with attached workbook" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[emailAddress]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["antoagnesjency@gmail.com"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="SingleWindow" DisplayName="Extract Table Data for Sales Opportunities" HealingAgentBehavior="Job" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="c9e2ae86-492c-45ca-9eaf-63dc9c81f2da" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractedData]" DisplayName="Extract Table Data of Sales Opportunities" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Account Name' ReferenceIdx='1' Name='Account Name'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Country' ReferenceIdx='2' Name='Country'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Opportunity Owner' ReferenceIdx='3' Name='Opportunity Owner'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Stage' ReferenceIdx='4' Name='Stage'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Quantity' ReferenceIdx='5' Name='Quantity'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Unit Sales Price' ReferenceIdx='6' Name='Unit Sales Price'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='Total Price' ReferenceIdx='7' Name='Total Price'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA; &lt;Column xsi:type='DataColumn' ReferenceName='List Price' ReferenceIdx='8' Name='List Price'&gt;&#xA;  &lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;  &lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;  &lt;Format xsi:type='TextColumnFormat' /&gt;&#xA; &lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Account Name' attr='text' /&gt;&lt;column name='Country' attr='text' /&gt;&lt;column name='Opportunity Owner' attr='text' /&gt;&lt;column name='Stage' attr='text' /&gt;&lt;column name='Quantity' attr='text' /&gt;&lt;column name='Unit Sales Price' attr='text' /&gt;&lt;column name='Total Price' attr='text' /&gt;&lt;column name='List Price' attr='text' /&gt;&lt;/extract-table&gt;" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="c9e2ae86-492c-45ca-9eaf-63dc9c81f2da" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="148, 189, 1448, 1072" DesignTimeScaleFactor="1.5" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="77016aaf-513a-4bc5-83b5-a25a9a12500c" InformativeScreenshot="140f11de8bdbf417b395d6b6a5b5a795.jpg" ScopeSelectorArgument="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" SearchSteps="Selector" Version="V1" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" InformativeScreenshot="64c679ffe222fe54592d06c82d548bc1.jpg" Selector="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" Url="https://www.rpasamples.com/opportunities" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <uga:CreateSpreadsheetConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" ManualEntryParentFolderId="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" BrowserParentFolderFriendlyName="My Drive" BrowserParentFolderId="root" ConflictResolution="Replace" ConnectionId="fc0932e4-4a41-4ebe-a423-81e37feb3e3a" DisplayName="Create Spreadsheet" FirstSheetName="Sheet1" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_1" NewSpreadsheet="[saveSpreadsheetForLater]" ParentFolderInputMode="Browse" SpreadsheetName="Sales_Opportunities" UseConnectionService="True">
+      <uga:CreateSpreadsheetConnections.Item>
+        <ugam:DriveItemArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="root" ConnectionKey="fc0932e4-4a41-4ebe-a423-81e37feb3e3a" FriendlyName="My Drive" FullPathHint="My Drive" InputMode="Browse">
+          <ugam:DriveItemArgument.Backup>
+            <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
+              <usau:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </ugam:DriveItemArgument.Backup>
+          <ugam:DriveItemArgument.DriveId>
+            <InArgument x:TypeArguments="x:String" />
+          </ugam:DriveItemArgument.DriveId>
+          <ugam:DriveItemArgument.ParentIdFullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.ParentIdFullPathHint>
+        </ugam:DriveItemArgument>
+      </uga:CreateSpreadsheetConnections.Item>
+    </uga:CreateSpreadsheetConnections>
+    <uga:WriteRangeConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" ConnectionId="66e6bbec-ba9b-434b-a47d-9bce0f3cbcb6" DisplayName="Write Range" sap2010:WorkflowViewState.IdRef="WriteRangeConnections_2" IncludeHeaders="True" ItemSelectionMode="UseExisting" Range="Sheet1" RowPosition="0" Source="[ExtractedData]" Spreadsheet="[saveSpreadsheetForLater]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Overwrite">
+      <uga:WriteRangeConnections.FileIdBackup>
+        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID1" StoredValue="UseExisting">
+          <usau:BackupSlot.BackupValues>
+            <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="3">
+              <x:Null />
+              <x:Null />
+              <x:Null />
+            </scg:List>
+            <scg:List x:TypeArguments="x:Object" x:Key="UseExisting" Capacity="1">
+              <InArgument x:TypeArguments="ugdm:GDriveRemoteItem">[Sales_Opportunities]</InArgument>
+            </scg:List>
+            <scg:List x:TypeArguments="x:Object" x:Key="UrlOrId" Capacity="1">
+              <InArgument x:TypeArguments="x:String">[saveSpreadsheetForLater]</InArgument>
+            </scg:List>
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:WriteRangeConnections.FileIdBackup>
+      <uga:WriteRangeConnections.Item>
+        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID1}" BrowserId="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" DriveId="{x:Null}" FriendlyName="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" Existing="[saveSpreadsheetForLater]" InputMode="UseExisting">
+          <ugam:DriveItemArgument.FullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.FullPathHint>
+          <ugam:DriveItemArgument.ParentIdFullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.ParentIdFullPathHint>
+        </ugam:DriveItemArgument>
+      </uga:WriteRangeConnections.Item>
+      <uga:WriteRangeConnections.RangeWriteModeBackup>
+        <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Overwrite">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="ugase:RangeWriteMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:WriteRangeConnections.RangeWriteModeBackup>
+    </uga:WriteRangeConnections>
+    <uga:DownloadFileConnections BrowserFileId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" ManualEntryFileId="{x:Null}" ManualFileId="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Replace" ConnectionId="fc0932e4-4a41-4ebe-a423-81e37feb3e3a" DestinationPath="&quot;Sales_Opportunities.xlsx&quot;" DisplayName="Download File" DownloadDocumentAs="Word" DownloadDrawingAs="Jpeg" DownloadPresentationAs="Ppt" DownloadSpreadsheetAs="Xlsx" File="[saveSpreadsheetForLater]" FileInputMode="UseExisting" sap2010:WorkflowViewState.IdRef="DownloadFileConnections_2" NewResult="[file]" UseConnectionService="True">
+      <uga:DownloadFileConnections.FileIdBackup>
+        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID2" StoredValue="UseExisting">
+          <usau:BackupSlot.BackupValues>
+            <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="3">
+              <x:Null />
+              <x:Null />
+              <x:Null />
+            </scg:List>
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:DownloadFileConnections.FileIdBackup>
+      <uga:DownloadFileConnections.Item>
+        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID2}" BrowserId="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" DriveId="{x:Null}" FriendlyName="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" Existing="[saveSpreadsheetForLater]" InputMode="UseExisting">
+          <ugam:DriveItemArgument.FullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.FullPathHint>
+          <ugam:DriveItemArgument.ParentIdFullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.ParentIdFullPathHint>
+        </ugam:DriveItemArgument>
+      </uga:DownloadFileConnections.Item>
+    </uga:DownloadFileConnections>
+    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ReplyTo="{x:Null}" SensitivityLabelId="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" Attachments="[Enumerable.Repeat(file, 1).ToList()]" AuthScopesInvalid="False" Body="&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;This is the automated extraction process of the Sales Opportunities data from rpasamples.com/suppliers&amp;nbsp; .&lt;br&gt;You can find attached the ExtractedSalesOpportunities Excel workbook.&lt;/p&gt;" ConnectionId="a7ace3ec-90b4-40c8-bc4f-7045bf5f6fcd" DisplayName="Send Email" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" IsDeliveryReceiptRequested="False" IsReadReceiptRequested="False" SaveAsDraft="False" Subject="Extracted Sales Opportunities Data" To="[Enumerable.Repeat(emailAddress, 1).ToList()]" UseConnectionService="True" UseSharedMailbox="False">
+      <umam:SendMailConnections.AttachmentsBackup>
+        <usau1:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+          <usau1:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+          </usau1:BackupSlot.BackupValues>
+        </usau1:BackupSlot>
+      </umam:SendMailConnections.AttachmentsBackup>
+      <umam:SendMailConnections.InputTypeBackup>
+        <usau1:BackupSlot x:TypeArguments="umame:BodyInputType" StoredValue="HTML">
+          <usau1:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="umame:BodyInputType, scg:List(x:Object)" />
+          </usau1:BackupSlot.BackupValues>
+        </usau1:BackupSlot>
+      </umam:SendMailConnections.InputTypeBackup>
+      <umam:SendMailConnections.MailboxArg>
+        <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
+          <umamm:MailboxArgument.Backup>
+            <usau1:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID3" StoredValue="NoMailbox">
+              <usau1:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
+              </usau1:BackupSlot.BackupValues>
+            </usau1:BackupSlot>
+          </umamm:MailboxArgument.Backup>
+        </umamm:MailboxArgument>
+      </umam:SendMailConnections.MailboxArg>
+    </umam:SendMailConnections>
+  </Sequence>
+</Activity>
